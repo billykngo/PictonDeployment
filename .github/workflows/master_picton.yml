@@ -26,8 +26,9 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          python -m venv venv
-          source venv/bin/activate
+          micromamba env create -f backend/environment.yml
+          micromamba activate picton-backend
+          python manage.py runserver 0.0.0.0:${PORT}
       
       - name: Install dependencies
         run: pip install -r requirements.txt
