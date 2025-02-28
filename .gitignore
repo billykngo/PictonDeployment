@@ -1,17 +1,38 @@
-# frontend
-frontend/node_modules
-
-# backend
-**/**/__pycache__
-backend/api/__pychache__
-backend/api/migrations/__pycache__
-backend/config/__pycache__
-
-# env files
-database/scripts/.env
-backend/.env
+# ========================
+# FRONTEND
+# ========================
+frontend/node_modules/
+frontend/dist/
 frontend/.env
+frontend/.next/
+frontend/out/
 
-# other
+# ========================
+# BACKEND
+# ========================
+**/__pycache__/
+backend/api/__pycache__/
+backend/api/migrations/__pycache__/
+backend/config/__pycache__/
+backend/.env
+
+# ========================
+# DATABASE & SCRIPTS
+# ========================
+database/scripts/.env
+pgdata/  # If using Docker volumes for PostgreSQL
+
+# ========================
+# LOG FILES & SYSTEM FILES
+# ========================
+*.log
+*.sqlite3
+*.DS_Store
+*.vscode/
+*.idea/
+
+# ========================
+# GIT & DEPLOYMENT FILES
+# ========================
 start_frontend.bat
 start_backend.bat

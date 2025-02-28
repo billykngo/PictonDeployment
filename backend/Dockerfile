@@ -17,8 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire Django project into the container
 COPY . .
 
-# Expose the backend port
-EXPOSE 5000
+EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-# Run Django server
-CMD ["python", "manage.py", "runserver", "--noreload", "--insecure"]
+
