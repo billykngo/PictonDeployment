@@ -26,8 +26,8 @@ case $choice in
         python manage.py createsuperuser
         ;;
     3)
-        echo "Starting the Django development server on port 8000..."
-        python manage.py runserver 8000
+        echo "Starting the Django development server on port 5000..."
+        python manage.py runserver 5000
         ;;
     4)
         echo "Opening the database shell..."

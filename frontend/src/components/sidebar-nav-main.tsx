@@ -30,6 +30,8 @@ export function NavMain({
     items?: {
       title: string;
       url: string;
+      isActive?: boolean; // ✅ Add this
+      onClick?: () => void; // ✅ Add this
     }[];
   }[];
 }) {
