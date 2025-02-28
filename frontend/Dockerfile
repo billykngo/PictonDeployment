@@ -1,23 +1,23 @@
-# Use an official Node.js image
+# Use official Node.js image
 FROM node:18-alpine
 
-# Set the working directory inside the container
+# Set working directory inside container
 WORKDIR /app
 
-# Copy package.json and lock file first (to use Docker caching)
-COPY ["package.json", "pnpm-lock.yaml", "./"]
+# Copy package.json and lock file
+COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies inside the container
-RUN npm install --global pnpm && pnpm install --frozen-lockfile
+# Install dependencies using pnpm
+RUN npm install --global pnpm && pnpm install
 
-# Copy the rest of the frontend files (excluding node_modules via .dockerignore)
+# Copy the rest of the project files
 COPY . .
 
-# Build the frontend
+# Build the project for production
 RUN npm run build
 
-# Expose port 8000 for serving
+# Expose the port Vite will use
 EXPOSE 8000
 
-# Start the Vite preview server
+# Start the production server
 CMD ["npm", "run", "preview"]
