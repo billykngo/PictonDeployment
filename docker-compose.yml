@@ -5,12 +5,13 @@ services:
     image: pictonregistry.azurecr.io/frontend:latest
     environment: 
       - NODE_ENV=development
+      - PORT=8000
     ports:
-      - "8080:80"
+      - "8000:8000"
     depends_on:
       database:
         condition: service_healthy
-    command: ["npm", "run", "start"]
+    command: ["npm", "run", "preview"]
 
 ####### BACKEND ########
   backend:

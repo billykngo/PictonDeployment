@@ -10,5 +10,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
       "@styles": path.resolve(__dirname, "src/styles"),
     },
+    host: '0.0.0.0',  // Allows access from outside the container
+    port: 8000,        // Match the port in your docker-compose.yml
+    strictPort: true,  // Prevents Vite from switching ports automatically
   },
 });
