@@ -6,10 +6,8 @@ def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
-    if "runserver" in sys.argv and not any(arg.startswith("0.0.0.0") for arg in sys.argv):
-        # This sets the port only if it's not already provided
-        port = os.getenv("PORT", "8000")  # Default to 8000 if no environment variable is set
-        sys.argv.append(f"0.0.0.0:{port}")
+    # if "runserver" in sys.argv:
+    #     sys.argv.append(f"0.0.0.0:{8000}")
 
 
     try:

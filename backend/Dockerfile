@@ -1,23 +1,19 @@
-# Use an official Python image
-FROM python:3.12
+FROM python:3.11-slim
 
-# Set environment variables
-ENV PYTHONUNBUFFERED=1
-
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the .env file
-COPY .env .env
-
-# Copy the requirements file and install dependencies
-COPY requirements.txt ./
+# Install dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire Django project into the container
+# Copy project files
 COPY . .
 
+# Copy .env file
+COPY .env .
+
+# Expose port
 EXPOSE 8000
+
+# Run the application
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
-
-
